@@ -1,9 +1,7 @@
 from pathlib import Path
 
 try:
-    from local_settings import DEBUG, SECRET_KEY as DB, SK
-    SECRET_KEY = SK
-    DEBUG = DB
+    from .local_settings import DEBUG, SECRET_KEY
 except ImportError:
     SECRET_KEY = 'this is not secret key'
     DEBUG = False
@@ -11,7 +9,7 @@ except ImportError:
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
