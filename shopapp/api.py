@@ -2,6 +2,13 @@ from .models import Section, Subsection, Category, Product
 from rest_framework import viewsets, permissions
 from .serializers import SectionSerializer, SubsectionSerializer, CategorySerializer, ProductSerializer
 
+class FullinfoViewSet(viewsets.ModelViewSet):
+        queryset = Product.objects.prefetch_related('category').all()
+        permission_classes = [
+                permissions.AllowAny
+        ]
+        serializer_class = ProductSerializer
+
 class SectionViewSet(viewsets.ModelViewSet):
         queryset = Section.objects.all()
         permission_classes = [
