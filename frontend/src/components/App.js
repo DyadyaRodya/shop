@@ -32,7 +32,8 @@ class App extends Component {
   }*/
 
   render() {
-    return (/* 
+    return (
+      /* 
       <ul>
         {this.state.data.map(contact => {
           return (
@@ -46,7 +47,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 render(<App />, document.getElementById("app"));
